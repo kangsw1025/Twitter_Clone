@@ -7,7 +7,6 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-import { useHistory } from "react-router";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -47,8 +46,8 @@ const Auth = () => {
         data = await signInWithEmailAndPassword(authService, email, password);
         console.log(data);
       }
-    } catch (error) {
-      setError(error);
+    } catch (e) {
+      setError(e);
       console.log(error);
     }
   };

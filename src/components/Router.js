@@ -5,7 +5,7 @@ import Home from "../routes/Home";
 import Navigation from "../routes/Navigation";
 import Profile from "../routes/Profile";
 
-export default ({ isLoggedIn }) => {
+export default ({ isLoggedIn, userObj }) => {
   return (
     <Router>
       {isLoggedIn && <Navigation />}
@@ -13,7 +13,7 @@ export default ({ isLoggedIn }) => {
         {isLoggedIn ? (
           <>
             <Route path="/" exact>
-              <Home />
+              <Home userObj={userObj} />
             </Route>
             <Route path="/profile">
               <Profile />
