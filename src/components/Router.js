@@ -12,20 +12,31 @@ export default ({ isLoggedIn, userObj, refreshUser }) => {
       {isLoggedIn && userObj.displayName && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedIn ? (
-          userObj.displayName ? (
-            <>
-              <Route path="/" exact>
-                <Home userObj={userObj} />
+          <div
+            style={{
+              maxWidth: 890,
+              width: "100px",
+              margin: "0 auto",
+              marginTop: 80,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {userObj.displayName ? (
+              <>
+                <Route path="/" exact>
+                  <Home userObj={userObj} />
+                </Route>
+                <Route path="/profile">
+                  <Profile userObj={userObj} refreshUser={refreshUser} />
+                </Route>
+              </>
+            ) : (
+              <Route path="/">
+                <NickName userObj={userObj} refreshUser={refreshUser} />
               </Route>
-              <Route path="/profile">
-                <Profile userObj={userObj} refreshUser={refreshUser} />
-              </Route>
-            </>
-          ) : (
-            <Route path="/">
-              <NickName userObj={userObj} refreshUser={refreshUser} />
-            </Route>
-          )
+            )}
+          </div>
         ) : (
           <>
             <Route>

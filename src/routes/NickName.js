@@ -1,5 +1,6 @@
 import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
+import "../css/profile.css";
 
 function NickName({ userObj, refreshUser }) {
   const [nickname, setNickname] = useState("");
@@ -17,15 +18,22 @@ function NickName({ userObj, refreshUser }) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <div>Write nickname which you want</div>
+    <form onSubmit={onSubmit} className="profileForm">
       <input
         type="text"
-        placeholder="Write Your Nickname"
-        onChange={onChange}
+        autoFocus
+        placeholder="Display Name"
         value={nickname}
+        onChange={onChange}
+        minLength="2"
+        className="formInput"
       />
-      <input type="button" value="생성" />
+      <input
+        type="submit"
+        value="Make profile"
+        className="formBtn"
+        stype={{ marginTop: 10 }}
+      />
     </form>
   );
 }

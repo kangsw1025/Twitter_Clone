@@ -3,6 +3,7 @@ import { dbService } from "../fbase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import Twit from "../components/Twit";
 import TwitFactory from "../components/TwitFactory";
+import "../css/twit.css";
 
 function Home({ userObj }) {
   const [twits, setTwits] = useState([]);
@@ -24,9 +25,9 @@ function Home({ userObj }) {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <TwitFactory userObj={userObj} />
-      <div>
+      <div style={{ marginTop: 30 }}>
         {twits.map(twit => (
           <Twit
             key={twit.id}

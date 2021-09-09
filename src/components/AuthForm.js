@@ -33,8 +33,7 @@ function AuthForm() {
         console.log(data);
       }
     } catch (e) {
-      setError(e);
-      console.log(error);
+      console.log(e);
     }
   };
 
@@ -42,7 +41,7 @@ function AuthForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="container">
         <input
           name="email"
           type="email"
@@ -50,6 +49,7 @@ function AuthForm() {
           value={email}
           onChange={onChange}
           required
+          className="authInput"
         />
         <input
           name="password"
@@ -58,10 +58,16 @@ function AuthForm() {
           value={password}
           onChange={onChange}
           required
+          className="authInput"
         />
-        <input type="submit" value={newAccount ? "Create Account" : "LogIn"} />
+        <input
+          type="submit"
+          value={newAccount ? "Create Account" : "LogIn"}
+          className="authInput authSubmit"
+        />
+        {error && <span className="authError">{error}</span>}
       </form>
-      <span onClick={toggleAcount}>
+      <span onClick={toggleAcount} className="authSwitch">
         {newAccount ? "Login" : "Create Account"}
       </span>
     </>

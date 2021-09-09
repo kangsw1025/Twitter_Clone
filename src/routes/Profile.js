@@ -2,6 +2,7 @@ import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { authService } from "../fbase";
+import "../css/profile.css";
 
 function Profile({ userObj, refreshUser }) {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -32,23 +33,37 @@ function Profile({ userObj, refreshUser }) {
   };
 
   return (
-    <>
+    <div className="container">
       {update ? (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="profileForm">
           <input
             type="text"
+            autoFocus
             placeholder="Display Name"
             value={newDisplayName}
             onChange={onChange}
             minLength="2"
+            className="formInput"
           />
-          <input type="submit" value="Update Profile" />
+          <input
+            type="submit"
+            value="Update Profile"
+            className="formBtn"
+            stype={{ marginTop: 10 }}
+          />
         </form>
       ) : (
-        <input type="button" onClick={toggleUpdate} value="Update Profile" />
+        <input
+          type="button"
+          className="formBtn"
+          onClick={toggleUpdate}
+          value="Modify Profile"
+        />
       )}
-      <button onClick={onLogOutClick}>LogOut</button>
-    </>
+      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+        LogOut
+      </span>
+    </div>
   );
 }
 
