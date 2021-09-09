@@ -1,0 +1,29 @@
+.nickNameForm {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  padding-bottom: 30px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nickNameInput {
+  width: 220px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.nickNameBtn {
+  cursor: pointer;
+  width: 100%;
+  padding: 7px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  background-color: #04aaff;
+  cursor: pointer;
+  margin-top: 10px;
+}

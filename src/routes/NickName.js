@@ -1,6 +1,6 @@
 import { updateProfile } from "firebase/auth";
 import React, { useState } from "react";
-import "../css/profile.css";
+import "../css/nickname.css";
 
 function NickName({ userObj, refreshUser }) {
   const [nickname, setNickname] = useState("");
@@ -18,7 +18,7 @@ function NickName({ userObj, refreshUser }) {
   };
 
   return (
-    <form onSubmit={onSubmit} className="profileForm">
+    <form onSubmit={onSubmit} className="nickNameForm">
       <input
         type="text"
         autoFocus
@@ -26,12 +26,12 @@ function NickName({ userObj, refreshUser }) {
         value={nickname}
         onChange={onChange}
         minLength="2"
-        className="formInput"
+        className="nickNameInput"
       />
       <input
         type="submit"
         value="Make profile"
-        className="formBtn"
+        className="nickNameBtn"
         stype={{ marginTop: 10 }}
       />
     </form>
