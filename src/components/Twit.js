@@ -11,6 +11,7 @@ function Twit({ twitObj, isOwner }) {
     console.log(twitObj);
     if (ok) {
       await deleteDoc(doc(dbService, "twits", `${twitObj.id}`));
+      await deleteObject(ref(storageService, twitObj.attachmentUrl));
     }
   };
 
@@ -30,6 +31,9 @@ function Twit({ twitObj, isOwner }) {
       {editing ? (
         <>
           <form onSubmit={onSubmit}>
+            {twitObj.attachmentUrl && (
+              <img src={twitObj.attachmentUrl} width="40%" />
+            )}
             <input
               type="text"
               placeholder="Edit your twit"
@@ -44,7 +48,9 @@ function Twit({ twitObj, isOwner }) {
       ) : (
         <>
           <h4>{twitObj.twit}</h4>
-
+          {twitObj.attachmentUrl && (
+            <img src={twitObj.attachmentUrl} width="10%" />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Twit</button>
