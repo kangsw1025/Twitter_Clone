@@ -100,7 +100,7 @@ function Home({ userObj }) {
           <input type="submit" value="Twit" />
           {attachment && (
             <div>
-              <img src={attachment} width="20%" />
+              <img src={attachment} width="30%" />
               <button onClick={onClearAttachment}>Clear</button>
             </div>
           )}
