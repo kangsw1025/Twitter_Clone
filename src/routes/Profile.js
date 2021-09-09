@@ -1,16 +1,7 @@
-import {
-  collection,
-  getDocs,
-  onSnapshot,
-  orderBy,
-  query,
-  QuerySnapshot,
-  where,
-} from "@firebase/firestore";
 import { updateProfile } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
-import { authService, dbService } from "../fbase";
+import { authService } from "../fbase";
 
 function Profile({ userObj, refreshUser }) {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);

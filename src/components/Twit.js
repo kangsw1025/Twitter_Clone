@@ -49,7 +49,7 @@ function Twit({ twitObj, isOwner }) {
         <>
           <h4>{twitObj.twit}</h4>
           {twitObj.attachmentUrl && (
-            <img src={twitObj.attachmentUrl} width="10%" />
+            <img src={twitObj.attachmentUrl} width="40%" />
           )}
           {isOwner && (
             <>
